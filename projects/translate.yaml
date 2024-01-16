@@ -1,0 +1,74 @@
+# Preview this document easily at https://editor.swagger.io/
+openapi: 3.0.3
+info:
+  title: translate
+  version: 1.0.0
+paths:
+  /:
+    get:
+      summary: Translate provided text
+      description: Pass in some text and have it translated from source to target language
+      parameters:
+        - name: text
+          in: query
+          description: Text to translate
+          required: true
+          schema:
+            type: string
+            example: La vache a sauté par-dessus la lune
+        - name: source
+          in: query
+          description: 'Source text language. Supported language codes: https://cloud.google.com/translate/docs/languages'
+          required: true
+          schema:
+            type: string
+            example: fr
+        - name: target
+          in: query
+          description: 'Target language. Supported language codes: https://cloud.google.com/translate/docs/languages'
+          required: true
+          schema:
+            type: string
+            example: en
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: The cow jumped over the moon
+    post:
+      summary: Translate provided text
+      description: Pass in some text and have it translated from source to target language
+      requestBody:
+        description: Text to translate
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              example: La vache a sauté par-dessus la lune
+      parameters:
+        - name: source
+          in: query
+          description: 'Source text language. Supported language codes: https://cloud.google.com/translate/docs/languages'
+          required: true
+          schema:
+            type: string
+            example: fr
+        - name: target
+          in: query
+          description: 'Target language. Supported language codes: https://cloud.google.com/translate/docs/languages'
+          required: true
+          schema:
+            type: string
+            example: en
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: The cow jumped over the moon

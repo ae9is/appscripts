@@ -1,0 +1,33 @@
+# Preview this document easily at https://editor.swagger.io/
+openapi: 3.0.3
+info:
+  title: currentTime
+  version: 1.0.0
+paths:
+  /:
+    get:
+      summary: Get current time
+      description: Get current time from time zone and format string
+      parameters:
+        - name: tz
+          in: query
+          description: The time zone, like 'GMT+1' or 'GMT-3'.
+          required: false
+          schema:
+            type: string
+            default: GMT
+        - name: format
+          in: query
+          description: 'SimpleDateFormat date and time pattern. See: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html'
+          required: false
+          schema:
+            type: string
+            default: 'HH:mm'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 13:37
