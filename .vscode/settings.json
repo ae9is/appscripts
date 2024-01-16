@@ -1,0 +1,6 @@
+{
+  // Treat google apps script files as javascript for syntax highlighting
+  "files.associations": {
+    "*.gs": "javascript",
+  }
+}
