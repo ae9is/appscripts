@@ -1,5 +1,5 @@
 // Retrieve the current time, for example for use in a chat bot !time command
-function doGet() {
+function doGet(e) {
   const params = e.parameter
   const timezone = params.tz || 'GMT'
   const format = params.format || 'HH:mm'
